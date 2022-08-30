@@ -21,8 +21,9 @@ object Solution {
 
     @tailrec
     def iter(i: Int, diff: Int): Int = {
-      if (i >= nums.length) diff
-      else iter(i + 1, helper(nums(i), i + 1, nums.length - 1, diff))
+      if (i < nums.length) {
+        iter(i + 1, helper(nums(i), i + 1, nums.length - 1, diff))
+      } else diff
     }
 
     target - iter(0, Int.MaxValue)
